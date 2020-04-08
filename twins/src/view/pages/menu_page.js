@@ -7,6 +7,7 @@ function HomePage({ navigation }) {
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
       <Icon name='bars'></Icon>
       <Text>HOLA</Text>
+      <Text>Sergio</Text>
     </View>
   )
 }
