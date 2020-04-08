@@ -1,7 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import HomePage from '../pages/home_page';
+
+import MenuPage from '../pages/menu_page';
+import GamePage from '../pages/game_page'
 
 
 const PageStack = createStackNavigator();
@@ -9,10 +11,13 @@ const PageStack = createStackNavigator();
 function RootPageStack() {
     return (
         <NavigationContainer>
-            <PageStack.Navigator headerMode='none' initialRouteName='HomePage'>
+            <PageStack.Navigator headerMode='none' initialRouteName='MenuPage'>
                 <PageStack.Screen
-                    name="HomePage"
-                    component={HomePage} />
+                    name="MenuPage"
+                    component={MenuPage} />
+                <PageStack.Screen
+                    name="GamePage"
+                    component={GamePage} />
             </PageStack.Navigator>
         </NavigationContainer>
     );
