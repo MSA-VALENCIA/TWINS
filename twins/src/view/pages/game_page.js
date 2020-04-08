@@ -6,7 +6,6 @@ function GamePage({ navigation }) {
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Icon name='gamepad'></Icon>
-            <Text>HOLA MASTER</Text>
         </View>
     )
 }
