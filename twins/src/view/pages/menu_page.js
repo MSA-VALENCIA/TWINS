@@ -6,6 +6,7 @@ function HomePage({ navigation }) {
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
       <Icon name='bars'></Icon>
+      <Text>Me cago en la puta</Text>
     </View>
   )
 }
