@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, ImageBackground, StyleSheet } from 'react-native'
+import { Text, View, ImageBackground, StyleSheet } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const image = { uri: "http://www.hdfondos.eu/preview/get_photo/84085/2880/1800" }
