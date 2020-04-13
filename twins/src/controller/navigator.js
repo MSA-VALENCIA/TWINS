@@ -11,7 +11,7 @@ const PageStack = createStackNavigator();
 function RootPageStack() {
     return (
         <NavigationContainer>
-            <PageStack.Navigator headerMode='none' initialRouteName='MenuPage'>
+            <PageStack.Navigator headerMode='none' initialRouteName='GamePage'>
                 <PageStack.Screen
                     name="MenuPage"
                     component={MenuPage} />

@@ -1,13 +1,21 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import { Text, View, ImageBackground, StyleSheet } from 'react-native'
 
 function GamePage({ navigation }) {
     return (
-        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name='gamepad'></Icon>
-        </View>
+        <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
+            <View>
+                
+            </View>
+        </ImageBackground>
     )
 }
+
+const styles = StyleSheet.create({
+    background: {
+      flex: 1,
+      flexDirection: 'column',
+    },
+  })
 
 export default GamePage

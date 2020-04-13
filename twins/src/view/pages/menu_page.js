@@ -6,7 +6,11 @@ function HomePage({ navigation }) {
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
       <Icon name='bars'></Icon>
+<<<<<<< HEAD
       <Text>HOLA ALBERTO</Text>
+=======
+      <Text>Hola prueba 1</Text>
+>>>>>>> 9e1b9240f0ebce2878eec342f6ca2708abab9d39
     </View>
   )
 }
