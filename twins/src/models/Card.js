@@ -3,6 +3,7 @@ class Game {
         this.index = index;
         this.image = image;
         this.turned = false;
+        this.paired = false;
         
     }
 
