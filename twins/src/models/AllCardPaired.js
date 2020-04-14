@@ -1,4 +1,4 @@
-class AllCardPaired {
+class AllCardPaired extends StateGame {
     constructor(){
         
     }

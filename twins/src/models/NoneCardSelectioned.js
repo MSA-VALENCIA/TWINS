@@ -1,4 +1,4 @@
-class NoneCardSelectioned {
+class NoneCardSelectioned extends StateGame {
     constructor(){
         
     }
