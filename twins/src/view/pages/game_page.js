@@ -12,7 +12,6 @@ function GamePage({ navigation }) {
 
                 </Grid>
             </View>
-            <View style={styles.footer}></View>
         </ImageBackground>
     )
 }
@@ -27,14 +26,11 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 5,
-        opacity: 0.3,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255,255,255,0.3)',
         margin: 10,
         borderRadius: 15,
+        marginBottom: 30
     },
-    footer: {
-        flex: 1,
-    }
   })
 
 export default GamePage

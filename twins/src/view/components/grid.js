@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import GridComponent from 'react-native-grid-component';
 import Card from '../components/card';
@@ -10,20 +10,21 @@ class Grid extends Component {
         super(props);
 
         this.state = {
-            index = 0
+            index: 0
         };
     }
 
-    _renderItem = (data, i) => (
-        <Card style={styles.item} card={data} index={i} />
+    _renderItem = (data, index) => (
+        <Card style={styles.item} card={data} key={index}/>
+        //<View style={[{ backgroundColor: data }, styles.item]} key={index}/>
     )
 
     render() {
         return (
             <GridComponent
                 style={styles.grid}
-                renderItem={_renderItem}
-                data={['black', 'white', 'red', 'green', 'black', 'white', 'red', 'green', 'black', 'white', 'red', 'green', 'black', 'white', 'red', 'green', 'black', 'white', 'red', 'green', 'black', 'white', 'red', 'green']}
+                renderItem={this._renderItem}
+                data={['black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green']}
                 numColumns={4}
             />
         )
