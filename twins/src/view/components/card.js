@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, Image, StyleSheet, ImageBackground } from 'react-native'
+import { TouchableOpacity, StyleSheet, ImageBackground } from 'react-native'
 
 import CardFlip from 'react-native-card-flip'
 
