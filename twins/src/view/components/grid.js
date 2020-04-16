@@ -10,13 +10,15 @@ class Grid extends Component {
         super(props);
 
         this.state = {
-            index: 0
+            index: 0,
+            //data: ''
         };
     }
 
+    
+
     _renderItem = (data, index) => (
-        <Card style={styles.item} card={data} key={index}/>
-        //<View style={[{ backgroundColor: data }, styles.item]} key={index}/>
+        <Card style={styles.item} card={data} index={index}/>
     )
 
     render() {

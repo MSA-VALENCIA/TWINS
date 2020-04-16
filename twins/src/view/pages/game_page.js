@@ -1,16 +1,19 @@
 import React from 'react'
 import { View, ImageBackground, StyleSheet } from 'react-native'
 import Grid from '../components/grid'
+import  Game, {gameDefault} from '../../models/Game'
 
 
-function GamePage({ navigation }) {
+function GamePage({route, navigation }) {
+
+    let game = gameDefault;
+    let deck = game.deck();
+    
     return (
         <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
             <View style={styles.header}></View>
             <View style={styles.body}>
-                <Grid>
-
-                </Grid>
+                <Grid deck = {deck}/>
             </View>
         </ImageBackground>
     )
