@@ -11,14 +11,14 @@ class Grid extends Component {
 
         this.state = {
             index: 0,
-            //data: ''
+            game: this.props.game,
+            cards: this.props.game.getDeck.getCards
         };
     }
 
-    
 
-    _renderItem = (data, index) => (
-        <Card style={styles.item} card={data} index={index}/>
+    _renderItem = (card, index) => (
+        <Card style={styles.item} card={card} index={index}/>
     )
 
     render() {
@@ -26,7 +26,7 @@ class Grid extends Component {
             <GridComponent
                 style={styles.grid}
                 renderItem={this._renderItem}
-                data={['black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green','black', 'white', 'red', 'green']}
+                data={this.state.cards}
                 numColumns={4}
             />
         )

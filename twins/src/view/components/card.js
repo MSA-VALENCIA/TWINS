@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import { TouchableOpacity, StyleSheet, ImageBackground, Text } from 'react-native'
 
 import CardFlip from 'react-native-card-flip'
+import StateGame from '../../models/StateGame'
 
 class Card extends Component {
 
   selected = (index) => {
-    
+    game.getState().handle(game, index)
   }
+  
 
   render() {
     let { index } = this.props;
-    //let { data } = this.props;
+    let {game} = this.props;
+    let card = game.getDeck.getCards;
+    
     return (
       <CardFlip key={index} style={styles.cardContainer} ref={card => (this['card' + index] = card)}>
         <TouchableOpacity
@@ -24,7 +28,7 @@ class Card extends Component {
           activeOpacity={1}
           onPress={() => this['card' + index].jiggle({ count: 2, duration: 100, progress: 0.05 })}
           style={{ flex: 1, backgroundColor: 'white', borderRadius: 10 }}>
-          <ImageBackground style={{ flex: 1 }} resizeMode={"center"} source={require('../../../assets/images/cards/bear.png')} />
+          <ImageBackground style={{ flex: 1 }} resizeMode={"center"} source={card.getImage} />
         </TouchableOpacity>
       </CardFlip>
     )

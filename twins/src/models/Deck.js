@@ -3,16 +3,34 @@ class Deck {
     constructor(cards){
         this.cards = cards;
         this.havePairs = false;
+        
     }
 
-    createPairs () {
+    get getCards() {
+        return this.cards;
+    }
+
+    createPairs() {
         if (!this.havePairs) {
-            this.cards = cards.push(cards);
+            this.cards.forEach(card => {
+                this.cards.push(card)
+            });
             this.havePairs = true;
         }
     }
+
+    shuffle() {
+        this.cards = this.cards.sort(function() {return Math.random() - 0.5})
+    }
+
+    prepareDeck() {
+        this.createPairs();
+        this.shuffle();
+        return this;
+    }
+
 }
 
-animals = (new Deck ([bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion])).createPairs();
+let animals = new Deck ([bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion]);
 
-export default {Deck, animals}
+export { Deck, animals }

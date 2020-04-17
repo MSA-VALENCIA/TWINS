@@ -1,26 +1,27 @@
 class Card {
     constructor(image){
-        this.image = image;     
+        this.image = image; 
+        
     }
 
-    get image () {
+    get getImage() {
         return this.image;
     }
 
 }
 
-bear = new Card ('assets/images/cards/bear.png');
-bull = new Card ('assets/images/cards/bull.png');
-cat = new Card ('assets/images/cards/cat.png');
-chicken = new Card ('assets/images/cards/chicken.png');
-cocodrile = new Card ('assets/images/cards/cocodrile.png');
-dog = new Card ('assets/images/cards/dog.png');
-dove = new Card ('assets/images/cards/dove.png');
-goat = new Card ('assets/images/cards/goat.png');
-hippopotamus = new Card ('assets/images/cards/hippopotamus.png');
-kangaroo = new Card ('assets/images/cards/kangaroo.png');
-koala = new Card ('assets/images/cards/koala.png');
-lion = new Card ('assets/images/cards/lion.png');
+let bear = new Card (require('../../assets/images/cards/bear.png'));
+let bull = new Card (require('../../assets/images/cards/bull.png'));
+let cat = new Card (require('../../assets/images/cards/cat.png'));
+let chicken = new Card (require('../../assets/images/cards/chicken.png'));
+let cocodrile = new Card (require('../../assets/images/cards/cocodrile.png'));
+let dog = new Card (require('../../assets/images/cards/dog.png'));
+let dove = new Card (require('../../assets/images/cards/dove.png'));
+let goat = new Card (require('../../assets/images/cards/goat.png'));
+let hippopotamus = new Card (require('../../assets/images/cards/hippopotamus.png'));
+let kangaroo = new Card (require('../../assets/images/cards/kangaroo.png'));
+let koala = new Card (require('../../assets/images/cards/koala.png'));
+let lion = new Card (require('../../assets/images/cards/lion.png'));
 
-export default { bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion }
+export { bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion }
 

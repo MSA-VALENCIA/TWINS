@@ -3,8 +3,10 @@ class StateGame {
 
     }
 
-    handle (game, index) {
+    handle(game, index) {
 
     }
 
 }
+
+export default StateGame

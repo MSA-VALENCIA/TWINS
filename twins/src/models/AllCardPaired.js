@@ -3,7 +3,7 @@ class AllCardPaired extends StateGame {
         super();
     }
 
-    handle (game, index) {
+    handle(game, index) {
         
     } 
     

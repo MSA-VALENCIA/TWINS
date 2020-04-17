@@ -3,7 +3,7 @@ class NoneCardSelectioned extends StateGame {
         super();
     }
 
-    handle (game, index) {
+    handle(game, index) {
 
         game.state(new OneCardSelectioned());
     } 

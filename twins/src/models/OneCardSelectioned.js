@@ -3,7 +3,7 @@ class OneCardSelectioned extends StateGame {
         super();
     }
 
-    handle (game, index) {
+    handle(game, index) {
         if (game.allPaired()) game.state(new AllCardPaired());
         else game.state(new NoneCardSelectioned());
     } 

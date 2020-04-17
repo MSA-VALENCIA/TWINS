@@ -1,36 +1,39 @@
 import {animals} from './Deck'
 import Deck from './Deck'
+import StateGame from './StateGame'
 
 class Game {
     constructor(maxCards, deck){
         this.cardsPaired = 0;
-        this.maxCards = maxCards;
-        this.deck = deck.createPairs();
+        this.maxCards = maxCards;          
+        this.deck = deck.prepareDeck();
         this.state = new StateGame();
+        
     }
 
-    allPaired () {
+    allPaired() {
         return this.cardsPaired == this.maxCards;
     }
 
-    request () {
+    request() {
         this.state.handle(this);
     }
     
-    get state () {
+    get getState() {
         return this.state;
     }
 
-    set state (state) {
+    set setState(state) {
         this.state = state;
     }
 
-    get deck () {
+    get getDeck() {
         return this.deck;
     }
 
 } 
 
-export default Game
+let defaultGame = new Game(24, animals)
 
-export let defaultGame = new Game(24, animals)
+export { Game, defaultGame }
+
