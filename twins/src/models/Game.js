@@ -1,13 +1,13 @@
 import {animals} from './Deck'
 import Deck from './Deck'
-import StateGame from './StateGame'
+import NoneCardSelectioned from './NoneCardSelectioned'
 
 class Game {
     constructor(maxCards, deck){
         this.cardsPaired = 0;
         this.maxCards = maxCards;          
         this.deck = deck.prepareDeck();
-        this.state = new StateGame();
+        this.state = new NoneCardSelectioned();
         
     }
 
@@ -15,8 +15,8 @@ class Game {
         return this.cardsPaired == this.maxCards;
     }
 
-    request() {
-        this.state.handle(this);
+    request(index, flip) {
+        this.state.handle(this, index, flip);
     }
     
     get getState() {

@@ -3,7 +3,7 @@ class StateGame {
 
     }
 
-    handle(game, index) {
+    handle(game, index, flip) {
 
     }
 

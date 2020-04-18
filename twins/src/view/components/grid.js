@@ -10,7 +10,6 @@ class Grid extends Component {
         super(props);
 
         this.state = {
-            index: 0,
             game: this.props.game,
             cards: this.props.game.getDeck.getCards
         };
@@ -18,7 +17,7 @@ class Grid extends Component {
 
 
     _renderItem = (card, index) => (
-        <Card style={styles.item} card={card} index={index}/>
+        <Card style={styles.item} game={this.state.game} card={card} index={index}/>
     )
 
     render() {

@@ -1,11 +1,43 @@
+import images from '../../index'
+
 class Card {
     constructor(image){
         this.image = image; 
-        
+        this.index = 0;
+        this.turned = false;
+        this.paired = false;
     }
 
     get getImage() {
         return this.image;
+    }
+
+    get getIndex () {
+        return this.index;
+    }
+
+    set setIndex (index) {
+        this.index = index;
+    }
+
+    get getTurned () {
+        return this.turned;
+    }
+
+    turn () {
+        this.turned = !this.turned;
+    }
+
+    get getPaired () {
+        return this.paired;
+    }
+
+    pair () {
+        this.paired = true;
+    }
+
+    arePair(card) {
+        return this.image == card.image && this.index != card.index;
     }
 
 }
@@ -24,4 +56,7 @@ let koala = new Card (require('../../assets/images/cards/koala.png'));
 let lion = new Card (require('../../assets/images/cards/lion.png'));
 
 export { bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion }
+
+export default Card
+
 
