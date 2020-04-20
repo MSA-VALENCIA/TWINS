@@ -5,35 +5,18 @@ import Card from '../components/card';
 
 
 class Grid extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            game: this.props.game,
-        };
-    }
-
-    doTurn = (index) => {
-
-        this.state.game.request(index, this.updateGame);
-    }
-
-    updateGame = (newGame) => {
-        this.setState({ game: newGame })
-    }
-
-
+    
     _renderItem = (card, index) => (
-        <Card style={styles.item} card={card} index={index} doTurn={this.doTurn} />
+        <Card style={styles.item} card={card} index={index} doTurn={this.props.doTurn} />
     )
 
     render() {
+        let {game} = this.props
         return (
             <GridComponent
                 style={styles.grid}
                 renderItem={this._renderItem}
-                data={this.state.game.getDeck.getCards}
+                data={game.getDeck.getCards}
                 numColumns={4}
             />
         )

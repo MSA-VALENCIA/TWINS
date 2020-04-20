@@ -1,33 +1,36 @@
-import NoneCardSelectioned from './NoneCardSelectioned';
-import StateGame from './StateGame';
+import NoneCardSelectioned from './NoneCardSelectioned'
+import StateGame from './StateGame'
 
 class OneCardSelectioned extends StateGame {
     constructor() {
-        super();
+        super()
     }
 
-    handle(game, index, updateGame) {
+    handle(game, index, updateGame,restartTimer) {
         deck = game.getDeck
-        card = deck.getCard(index);
-        card.turn();
-        card.select();
+        card = deck.getCard(index)
+        card.turn()
+        card.select()
         selectedCards = deck.getSelectedCards();
-        firstCard = selectedCards[0];
-        secondCard = selectedCards[1];
+        firstCard = selectedCards[0]
+        secondCard = selectedCards[1]
 
         if (firstCard.arePair(secondCard)) {
-            firstCard.pair();
-            secondCard.pair();
-            game.foundedPair();
+            firstCard.pair()
+            secondCard.pair()
+            game.foundedPair()
+            game.gamePunctuation.addPairedPoints()
         } else {
-            firstCard.turn();
-            secondCard.turn();
+            firstCard.turn()
+            secondCard.turn()
+            game.gamePunctuation.substractNotPairedPenalty()
         }
-        firstCard.select();
-        secondCard.select();
+        firstCard.select()
+        secondCard.select()
+        restartTimer()
         if (game.allPaired()) console.log('Todas emparejadas') //Aqui se tiene que llamara a la ventana de final
         else game.setState = new NoneCardSelectioned()
-        updateGame(game);
+        updateGame(game)
     }
 }
 
