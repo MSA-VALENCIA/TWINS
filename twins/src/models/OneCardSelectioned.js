@@ -1,22 +1,22 @@
-import StateGame from './StateGame'
-import NoneCardSelectioned from './NoneCardSelectioned'
-import AllCardPaired from './AllCardPaired'
-import FlipCard from 'react-native-card-flip';
+import NoneCardSelectioned from './NoneCardSelectioned';
+import StateGame from './StateGame';
 
 class OneCardSelectioned extends StateGame {
     constructor() {
         super();
     }
 
-    handle(game, index, flipCards) {
+    handle(game, index, updateGame) {
 
         console.log('one')
 
         deck = game.getDeck
-        deck.getCard(index).turn();
-        turnedCards = deck.getTurnedCards();
-        firstCard = turnedCards[0];
-        secondCard = turnedCards[1];
+        card = deck.getCard(index);
+        card.turn();
+        card.select();
+        selectedCards = deck.getSelectedCards();
+        firstCard = selectedCards[0];
+        secondCard = selectedCards[1];
 
         if (firstCard.arePair(secondCard)) {
             firstCard.pair();
@@ -24,35 +24,14 @@ class OneCardSelectioned extends StateGame {
             console.log(firstCard.getPaired)
             console.log(secondCard.getPaired)
         } else {
-            let flipedCards = [];
-            let clickableCards = [];
-            deck.getCards.forEach(card => {
-                if (card.getPaired) {
-                    flipedCards.push(true);
-                    clickableCards.push(false);
-                }else if (card.getTurned) {
-                    flipedCards.push(false);
-                    clickableCards.push(true);
-                } else {
-                    flipedCards.push(false);
-                    clickableCards.push(true);
-                }
-            });
-
-            console.log('flipCards')
-
-            console.log(flipedCards)
-            console.log(clickableCards)
-            flipCards(flipedCards, clickableCards);
+            firstCard.turn();
+            secondCard.turn();
         }
-        firstCard.turn();
-        secondCard.turn();
-        if (game.allPaired()) game.setState = new AllCardPaired();
+        firstCard.select();
+        secondCard.select();
+        if (game.allPaired()) console.log('Todas enparejadas') //Aqui se tiene que llamara a la ventana de final
         else game.setState = new NoneCardSelectioned()
-    }
-
-    toString() {
-        return 'One'
+        updateGame(game);
     }
 }
 

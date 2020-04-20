@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { StyleSheet } from 'react-native'
-
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import GridComponent from 'react-native-grid-component';
 import Card from '../components/card';
+
 
 class Grid extends Component {
 
@@ -11,50 +11,32 @@ class Grid extends Component {
 
         this.state = {
             game: this.props.game,
-            cards: this.props.game.getDeck.getCards,
-            flipedCards: this.props.game.getDeck.getCards.map((card) => { return false }),
-            clickableCards: this.props.game.getDeck.getCards.map((card) => { return true })
         };
-        this.flipCards = this.flipCards.bind(this)
     }
 
-    selected = (index) => {
+    doTurn = (index) => {
 
         console.log('request')
 
-        this.state.game.request(index, this.flipCards);
+        this.state.game.request(index, this.updateGame);
     }
 
-    /*UNSAFE_componentWillMount() {
-        let flipedCards1 = this.state.cards.map((card) => { return false })
-        let clickableCards1 = this.state.cards.map((card) => { return true })
-
-        this.setState({
-            flipedCards: flipedCards1,
-            clickableCards: clickableCards1
-        })
-    }*/
-
-    flipCards (newFlipedCards, newClickableCards) {
-
-        //this.setState({flipedCards: newFlipedCards, clickableCards: newClickableCards})
-
-        console.log(this.state.flipedCards)
-        console.log(this.state.clickableCards)
-
+    updateGame = (newGame) => {
+        this.setState({ game: newGame })
     }
 
 
     _renderItem = (card, index) => (
-        <Card style={styles.item} game={this.state.game} card={card} index={index} selected={this.selected} flip={this.state.flipedCards[index]} clickable={this.state.clickableCards[index]} />
+        <Card style={styles.item} card={card} index={index} doTurn={this.doTurn} />
     )
 
     render() {
+        console.log(this.state.flipedCards)
         return (
             <GridComponent
                 style={styles.grid}
                 renderItem={this._renderItem}
-                data={this.state.cards}
+                data={this.state.game.getDeck.getCards}
                 numColumns={4}
             />
         )

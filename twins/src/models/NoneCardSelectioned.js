@@ -1,44 +1,23 @@
-import StateGame from './StateGame'
-import OneCardSelectioned from './OneCardSelectioned'
+import OneCardSelectioned from './OneCardSelectioned';
+import StateGame from './StateGame';
 
 class NoneCardSelectioned extends StateGame {
     constructor() {
         super();
     }
 
-    handle(game, index, flipCards) {
+    handle(game, index, updateGame) {
 
         console.log('none')
 
-        deck = game.getDeck
-        deck.getCard(index).turn();
-        let flipedCards = [];
-        let clickableCards = [];
-        deck.getCards.forEach(card => {
-            if (card.getPaired) {
-                flipedCards.push(true);
-                clickableCards.push(false);
-            } else if (card.getTurned) {
-                flipedCards.push(true);
-                clickableCards.push(false);
-            } else {
-                flipedCards.push(false);
-                clickableCards.push(true);
-            }
-        });
-
-        console.log('flipCards')
-        console.log(flipedCards)
-        console.log(clickableCards)
-
-        flipCards(flipedCards, clickableCards);
+        deck = game.getDeck;
+        card = deck.getCard(index);
+        card.turn();
+        card.select();
         game.setState = new OneCardSelectioned();
-        return false;
+        updateGame(game);
     }
 
-    toString() {
-        return 'None'
-    }
 }
 
 export default NoneCardSelectioned

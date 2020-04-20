@@ -1,18 +1,18 @@
-import React from 'react'
-import { View, ImageBackground, StyleSheet } from 'react-native'
-import Grid from '../components/grid'
-import  {defaultGame} from '../../models/Game'
+import React from 'react';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import { defaultGame } from '../../models/Game';
+import Grid from '../components/grid';
 
 
-function GamePage({route, navigation }) {
+function GamePage({ route, navigation }) {
 
     let game = defaultGame;
-    
+
     return (
         <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
             <View style={styles.header}></View>
             <View style={styles.body}>
-                <Grid game = {game}/>
+                <Grid game={game} />
             </View>
         </ImageBackground>
     )
@@ -20,8 +20,8 @@ function GamePage({route, navigation }) {
 
 const styles = StyleSheet.create({
     background: {
-      flex: 1,
-      flexDirection: 'column',
+        flex: 1,
+        flexDirection: 'column',
     },
     header: {
         flex: 1,
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginBottom: 30
     },
-  })
+})
 
 export default GamePage

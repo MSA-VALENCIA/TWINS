@@ -1,5 +1,5 @@
 class StateGame {
-    constructor(){
+    constructor() {
 
     }
 

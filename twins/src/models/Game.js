@@ -1,26 +1,25 @@
-import {animals} from './Deck'
-import Deck from './Deck'
-import NoneCardSelectioned from './NoneCardSelectioned'
+import { animals } from './Deck';
+import NoneCardSelectioned from './NoneCardSelectioned';
 
 class Game {
-    constructor(maxCards, deck){
+    constructor(maxCards, deck) {
         this.cardsPaired = 0;
-        this.maxCards = maxCards;          
+        this.maxCards = maxCards;
         this.deck = deck.prepareDeck();
         this.state = new NoneCardSelectioned();
-        
+
     }
 
     allPaired() {
         return this.cardsPaired == this.maxCards;
     }
 
-    request(index, flipCards) {
+    request(index, updateGame) {
         console.log('haldle')
-        
-        return this.state.handle(this, index, flipCards);
+
+        return this.state.handle(this, index, updateGame);
     }
-    
+
     get getState() {
         return this.state;
     }
@@ -33,9 +32,9 @@ class Game {
         return this.deck;
     }
 
-} 
+}
 
 let defaultGame = new Game(24, animals)
 
-export { Game, defaultGame }
+export { Game, defaultGame };
 

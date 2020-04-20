@@ -1,10 +1,10 @@
-import {bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion} from './Card'
 import Card from '../models/Card';
+import { bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion } from './Card';
 class Deck {
-    constructor(cards){
+    constructor(cards) {
         this.cards = cards;
         this.havePairs = false;
-        
+
     }
 
     get getCards() {
@@ -26,7 +26,7 @@ class Deck {
     }
 
     shuffle() {
-        this.cards = this.cards.sort(function() {return Math.random() - 0.5})
+        this.cards = this.cards.sort(function () { return Math.random() - 0.5 })
     }
 
     prepareDeck() {
@@ -35,16 +35,16 @@ class Deck {
         return this;
     }
 
-    getTurnedCards() {
-        let turnedCards = [];
+    getSelectedCards() {
+        let selectedCards = [];
         this.cards.forEach(card => {
-            if(card.getTurned) turnedCards.push(card);
+            if (card.getSelected) selectedCards.push(card);
         });
-        return turnedCards;
+        return selectedCards;
     }
 
 }
 
-let animals = new Deck ([bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion]);
+let animals = new Deck([bear, bull, cat, chicken, cocodrile, dog, dove, goat, hippopotamus, kangaroo, koala, lion]);
 
-export { Deck, animals }
+export { Deck, animals };
