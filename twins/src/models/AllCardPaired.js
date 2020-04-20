@@ -5,7 +5,7 @@ class AllCardPaired extends StateGame {
         super();
     }
 
-    handle(game, index, flip) {
+    handle(game, index) {
         
     } 
 

@@ -37,7 +37,10 @@ class Card {
     }
 
     arePair(card) {
-        return this.image == card.image && this.index != card.index;
+        console.log(card)
+        console.log(this)
+
+        return this.image == card.getImage && this.index != card.getIndex;
     }
 
 }

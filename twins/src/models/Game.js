@@ -15,8 +15,10 @@ class Game {
         return this.cardsPaired == this.maxCards;
     }
 
-    request(index, flip) {
-        this.state.handle(this, index, flip);
+    request(index, flipCards) {
+        console.log('haldle')
+        
+        return this.state.handle(this, index, flipCards);
     }
     
     get getState() {
