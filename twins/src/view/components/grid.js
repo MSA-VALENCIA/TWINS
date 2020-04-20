@@ -16,8 +16,6 @@ class Grid extends Component {
 
     doTurn = (index) => {
 
-        console.log('request')
-
         this.state.game.request(index, this.updateGame);
     }
 
@@ -31,7 +29,6 @@ class Grid extends Component {
     )
 
     render() {
-        console.log(this.state.flipedCards)
         return (
             <GridComponent
                 style={styles.grid}

@@ -15,8 +15,6 @@ class Game {
     }
 
     request(index, updateGame) {
-        console.log('haldle')
-
         return this.state.handle(this, index, updateGame);
     }
 
@@ -30,6 +28,10 @@ class Game {
 
     get getDeck() {
         return this.deck;
+    }
+
+    foundedPair () {
+        this.cardsPaired += 2;
     }
 
 }

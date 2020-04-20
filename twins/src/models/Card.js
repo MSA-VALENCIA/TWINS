@@ -45,9 +45,6 @@ class Card {
     }
 
     arePair(card) {
-        console.log(card)
-        console.log(this)
-
         return this.image == card.getImage && this.index != card.getIndex;
     }
 

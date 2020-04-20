@@ -7,9 +7,6 @@ class NoneCardSelectioned extends StateGame {
     }
 
     handle(game, index, updateGame) {
-
-        console.log('none')
-
         deck = game.getDeck;
         card = deck.getCard(index);
         card.turn();
