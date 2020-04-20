@@ -13,7 +13,7 @@ function HomePage({ navigation }) {
         </Text>
         <TouchableOpacity 
           style={styles.button}
-          onPress={() => {alert('Ahora empieza una partida');}}
+          onPress={() => {navigation.navigate('GamePage');}}
           >
           <Text style={styles.text}>
               EMPEZAR PARTIDA
