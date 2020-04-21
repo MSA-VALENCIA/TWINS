@@ -1,24 +1,18 @@
 import React from 'react'
 import { Text, View, ImageBackground, StyleSheet } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
-const image = { uri: "http://www.hdfondos.eu/preview/get_photo/84085/2880/1800" }
+import AwesomeButton from 'react-native-really-awesome-button';
 
 function HomePage({ navigation }) {
   return (
     <View style={styles.view}>
-        <ImageBackground source={image} style={styles.image}>
+        <ImageBackground style={styles.image} source={require('../../../assets/images/background_homepage.png')} >
         <Text style={styles.title}>
-          TWINS
+          𝕋𝕎𝕀ℕ𝕊
         </Text>
-        <TouchableOpacity 
-          style={styles.button}
-          onPress={() => {navigation.navigate('GamePage');}}
-          >
-          <Text style={styles.text}>
-              EMPEZAR PARTIDA
-          </Text>
-        </TouchableOpacity>
+        <AwesomeButton width = {250} borderRadius = {15} backgroundColor = '#039BE5' textColor = '#424242' backgroundDarker = '#01579B'
+          onPress={() => {navigation.navigate('GamePage');}}>
+            EMPEZAR PARTIDA
+        </AwesomeButton>
         </ImageBackground>
     </View>
   )
@@ -30,28 +24,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    color:"white",
+    color: "#FF8A65",
     fontSize: 75,
     fontWeight: "bold",
-    margin: '20%',
+    margin: '10%',
   },
   text: {
-    color:"white",
-    fontSize: 20,
+    color:"black",
+    fontSize: 15,
     
   },
   image: {
-    flex: 6,
+    flex: 1,
     resizeMode: "cover",
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: "#0C58fc80",
-    height: 50,
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    width: '50%',
-  }
 });
 
 export default HomePage

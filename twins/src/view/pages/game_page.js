@@ -6,7 +6,7 @@ import Grid from '../components/grid';
 
 function GamePage({ route, navigation }) {
 
-    let game = defaultGame;
+    let game = route.params.newGame;
 
     return (
         <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
