@@ -13,7 +13,7 @@ class GamePage extends Component {
         super(props);
 
         this.state = {
-            game: route.params.newGame,
+            game: this.props.newGame,
         };
     }
 
