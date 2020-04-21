@@ -27,7 +27,5 @@ class Game {
 
 } export default Game
 
-export let defaultGame = new Game(24, animals)
-
-
+export { Game };
 
