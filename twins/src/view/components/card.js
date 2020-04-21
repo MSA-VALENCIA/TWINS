@@ -19,7 +19,6 @@ class Card extends Component {
     let { card } = this.props;
     let { doTurn } = this.props;
     let flip = card.getTurned;
-    card.setIndex = index;
 
     return (
 

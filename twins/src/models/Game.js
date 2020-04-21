@@ -11,33 +11,23 @@ class Game {
         this.gamePunctuation = new GamePunctuation()
     }
 
-    allPaired() {
-        return this.cardsPaired == this.maxCards
-    }
+    allPaired() {return this.cardsPaired == this.maxCards}
 
-    request(index, updateGame,restartTimer) {
-        return this.state.handle(this, index, updateGame,restartTimer)
-    }
+    request(index, viewFunctions) {return this.state.handle(this, index, viewFunctions)}
 
-    get getState() {
-        return this.state
-    }
+    get getState() {return this.state}
 
-    set setState(state) {
-        this.state = state
-    }
+    set setState(state) {this.state = state}
 
-    get getDeck() {
-        return this.deck
-    }
+    get getDeck() {return this.deck}
 
-    foundedPair () {
-        this.cardsPaired += 2
-    }
+    get getGamePunctuation() {return this.gamePunctuation}
 
-}
+    foundedPair () {this.cardsPaired += 2}
 
-let defaultGame = new Game(24, animals)
+} export default Game
 
-export { Game, defaultGame }
+export let defaultGame = new Game(24, animals)
+
+
 

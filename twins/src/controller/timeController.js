@@ -7,9 +7,11 @@ export let exceededTime = (game, updateGame) => {
         card.select()
         card.turn()
     });
-    game.gamePunctuation.substractExceededTimePenalty()
+    game.getGamePunctuation.substractExceededTimePenalty()
     game.setState = new NoneCardSelectioned()
     updateGame(game)
 }
 
 export let restartTimer = (timer) => {timer.restartTimer()}
+
+export let clearTimer = (timer) => {timer.clearTimer()}

@@ -6,31 +6,39 @@ class OneCardSelectioned extends StateGame {
         super()
     }
 
-    handle(game, index, updateGame,restartTimer) {
-        deck = game.getDeck
-        card = deck.getCard(index)
+    handle(game, index, viewFunctions) {
+        let gamePunctuation = game.getGamePunctuation
+        let deck = game.getDeck
+        let card = deck.getCard(index)
         card.turn()
         card.select()
-        selectedCards = deck.getSelectedCards();
-        firstCard = selectedCards[0]
-        secondCard = selectedCards[1]
+        let selectedCards = deck.getSelectedCards();
+        let firstCard = selectedCards[0]
+        let secondCard = selectedCards[1]
 
         if (firstCard.arePair(secondCard)) {
             firstCard.pair()
             secondCard.pair()
             game.foundedPair()
-            game.gamePunctuation.addPairedPoints()
+            gamePunctuation.addPairedPoints()
         } else {
+            if(firstCard.getTurnedAroundAtLeastOnce || secondCard.getTurnedAroundAtLeastOnce){
+                gamePunctuation.mistake()
+                gamePunctuation.substractNotPairedPenaltyWithMistakes()
+            }
+            else gamePunctuation.substractNotPairedPenalty()
             firstCard.turn()
             secondCard.turn()
-            game.gamePunctuation.substractNotPairedPenalty()
         }
         firstCard.select()
         secondCard.select()
-        restartTimer()
-        if (game.allPaired()) console.log('Todas emparejadas') //Aqui se tiene que llamara a la ventana de final
+        viewFunctions.restartTimer()
+        if (game.allPaired()) {
+            viewFunctions.clearTimer()
+            console.log('Todas emparejadas') //Aqui se tiene que llamara a la ventana de final
+        }
         else game.setState = new NoneCardSelectioned()
-        updateGame(game)
+        viewFunctions.updateGame(game)
     }
 }
 

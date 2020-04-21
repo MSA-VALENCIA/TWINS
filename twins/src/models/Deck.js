@@ -29,9 +29,18 @@ class Deck {
         this.cards = this.cards.sort(function () { return Math.random() - 0.5 })
     }
 
+    asignIndex(){
+        let i = 0
+        this.cards.forEach(card => {
+            card.setIndex = i
+            i++
+        });
+    }
+
     prepareDeck() {
         this.createPairs();
         this.shuffle();
+        this.asignIndex()
         return this;
     }
 

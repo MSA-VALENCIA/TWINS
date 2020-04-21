@@ -6,13 +6,13 @@ class NoneCardSelectioned extends StateGame {
         super();
     }
 
-    handle(game, index, updateGame) {
+    handle(game, index, viewFunctions) {
         deck = game.getDeck;
         card = deck.getCard(index);
         card.turn();
         card.select();
         game.setState = new OneCardSelectioned();
-        updateGame(game);
+        viewFunctions.updateGame(game);
     }
 
 }

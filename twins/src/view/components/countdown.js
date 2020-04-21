@@ -23,7 +23,7 @@ export default class Countdown extends Component {
 
     updateTimer = () => {
         this.updateColor()
-        if (this.state.time > 0)
+        if (this.state.time > 1)
             this.setState({
                 time: this.state.time - 1
             })
@@ -47,10 +47,10 @@ export default class Countdown extends Component {
             this.setState({
                 color: 'yellow'
             })
-        if (this.state.time == Math.round(this.state.duration / 4))
-            this.setState({
-                color: 'red'
-            })
+    }
+
+    clearTimer = () => {
+        clearInterval(this.state.timer)
     }
     // pauseTimer = () => {
     //     this.setState({
