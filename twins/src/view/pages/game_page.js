@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, View,Text } from 'react-native';
-import { defaultGame } from '../../models/Game';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import Grid from '../components/grid';
 import Countdown from '../components/countdown'
 import { exceededTime, restartTimer,clearTimer } from '../../controller/timeController'
@@ -46,7 +45,6 @@ class GamePage extends Component {
 
 
     render() {
-        //const {navigator} = this.props
         return (
             <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
                 <View style={{ flex: 1, justifyContent: 'flex-start' }}>

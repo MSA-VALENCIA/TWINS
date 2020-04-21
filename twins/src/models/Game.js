@@ -1,4 +1,3 @@
-import { animals } from './Deck'
 import NoneCardSelectioned from './NoneCardSelectioned'
 import GamePunctuation from './GamePunctuation'
 
