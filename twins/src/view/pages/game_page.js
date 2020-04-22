@@ -36,12 +36,18 @@ class GamePage extends Component {
         clearTimer(this.countdown)
     }
 
+    finishGame = () => {
+        console.log('final')
+        this.props.navigation.navigate('FinalPage')
+    }
+
     viewFunctions = {
         updateGame : this.updateGame,
         restartTimer: this.restartTimer,
-        clearTimer:this.clearTimer
+        clearTimer:this.clearTimer,
+        finishGame:this.finishGame
+        
     }
-
 
 
     render() {

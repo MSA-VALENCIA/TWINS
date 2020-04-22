@@ -35,7 +35,7 @@ class OneCardSelectioned extends StateGame {
         viewFunctions.restartTimer()
         if (game.allPaired()) {
             viewFunctions.clearTimer()
-            console.log('Todas emparejadas') //Aqui se tiene que llamara a la ventana de final
+            viewFunctions.finishGame()
         }
         else game.setState = new NoneCardSelectioned()
         viewFunctions.updateGame(game)
