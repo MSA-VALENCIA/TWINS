@@ -1,6 +1,6 @@
 const PAIRED_POINTS = 10
 const NOT_PAIRED_PENALTY = 1
-const EXCEEDED_TIME_PENALTY = 1
+const EXCEEDED_TIME_PENALTY = 2
 
 class GamePunctuation {
     constructor() {
