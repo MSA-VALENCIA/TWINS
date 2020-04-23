@@ -3,7 +3,7 @@ import GamePunctuation from './GamePunctuation'
 
 class Game {
     constructor(maxCards, deck) {
-        this.cardsPaired = 22
+        this.cardsPaired = 0
         this.maxCards = maxCards
         this.deck = deck.prepareDeck()
         this.state = new NoneCardSelectioned()
