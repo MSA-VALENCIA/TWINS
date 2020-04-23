@@ -12,39 +12,39 @@ function FinalPage({ navigation }) {
             <View style={styles.container}>
 
                 <View style={[styles.top, styles.centerAll]}>
-                    <Text style={{ fontSize: 40, fontWeight: 'bold' }}> FIN DE PARTIDA </Text>
+                    <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#263238' }}> FIN DE PARTIDA </Text>
                 </View>
 
                 <View style={styles.mid}>
                     <View style={[styles.midUp, styles.centerAll]}>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold' }}>RESULTADO FINAL</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#263238' }}>RESULTADO FINAL</Text>
                     </View>
 
                     <View style={styles.midCenter}>
 
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 25 }}>Aciertos x5:</Text>
-                            <Text style={{ fontSize: 25 }}>Fallos x7:</Text>
+                            <Text style={{ fontSize: 20 }}>Aciertos:</Text>
+                            <Text style={{ fontSize: 20 }}>Fallos:</Text>
                         </View>
 
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ color: 'green', fontSize: 25 }}>500 puntos</Text>
-                            <Text style={{ color: 'red', fontSize: 25 }}> -70 puntos</Text>
+                            <Text style={{ color: 'green', fontSize: 20 }}>500 puntos</Text>
+                            <Text style={{ color: 'red', fontSize: 20 }}> -70 puntos</Text>
                         </View>
 
                     </View>
 
                     <View style={{
-                        borderBottomColor: 'black', borderBottomWidth: 1, marginLeft: 30, marginRight: 30,
+                        borderBottomColor: '#263238', borderBottomWidth: 1, marginLeft: 20, marginRight: 20,
                         marginTop: 15
                     }} />
 
                     <View style={styles.midDown}>
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 25 }}>Total:</Text>
+                            <Text style={{ fontSize: 20 }}>Total:</Text>
                         </View>
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 25, fontWeight: 'bold' }}>430 puntos</Text>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold', color:'#263238' }}>430 puntos</Text>
                         </View>
                     </View>
                 </View>
@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        marginTop: 80,
-        marginBottom: 80,
-        marginLeft: 50,
-        marginRight: 50,
+        backgroundColor: 'rgba(255,245,157,0.5)',
+        marginTop: 100,
+        marginBottom: 100,
+        marginLeft: 35,
+        marginRight: 35,
         borderRadius: 40
     },
     centerAll: {
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         flex: 0.7,
     },
     mid: {
-        flex: 1,
+        flex: 1.5,
         backgroundColor: 'cornsilk',
         marginLeft: 15,
         marginRight: 15,
