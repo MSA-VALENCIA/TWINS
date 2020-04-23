@@ -81,10 +81,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgba(255,245,157,0.5)',
-        marginTop: 100,
-        marginBottom: 100,
-        marginLeft: 35,
-        marginRight: 35,
+        marginTop: '25%',
+        marginBottom: '25%',
+        marginLeft: '10%',
+        marginRight: '10%',
         borderRadius: 40
     },
     centerAll: {
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     mid: {
         flex: 1.5,
         backgroundColor: 'rgba(255,255,255,0.7)',
-        marginLeft: 15,
-        marginRight: 15,
+        marginLeft: '7%',
+        marginRight: '7%',
         borderRadius: 40,
 
     },
@@ -115,28 +115,14 @@ const styles = StyleSheet.create({
     midDown: {
         flex: 0.8,
         flexDirection: "row",
-        marginBottom: 10
+        marginBottom: '5%'
     },
     botones: {
         flex: 0.6,
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: 'space-evenly',
-    },
-    but: {
-        borderRadius: 15,
-        paddingVertical: 14,
-        paddingHorizontal: 10,
-        backgroundColor: 'chocolate'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-        fontSize: 20,
-        textAlign: 'center'
     }
-
 })
 
 export default FinalPage
