@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,View } from 'react-native';
 import GridComponent from 'react-native-grid-component';
 import Card from '../components/card';
 

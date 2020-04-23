@@ -16,39 +16,24 @@ class GamePage extends Component {
         };
     }
 
-    doTurn = (index) => {
-        this.state.game.request(index, this.viewFunctions);
-    }
+    doTurn = (index) => {this.state.game.request(index, this.viewFunctions);}
 
-    updateGame = (newGame) => {
-        this.setState({ game: newGame })
-    }
+    updateGame = (newGame) => {this.setState({ game: newGame })}
 
-    exceededTime = () => {
-        exceededTime(this.state.game, this.updateGame)
-    }
+    exceededTime = () => {exceededTime(this.state.game, this.updateGame)}
 
-    restartTimer = () => {
-        restartTimer(this.countdown)
-    }
+    restartTimer = () => {restartTimer(this.countdown)}
 
-    clearTimer = () => {
-        clearTimer(this.countdown)
-    }
+    clearTimer = () => {clearTimer(this.countdown)}
 
-    finishGame = () => {
-        console.log('final')
-        this.props.navigation.navigate('FinalPage',this.state.game)
-    }
+    finishGame = () => {this.props.navigation.navigate('FinalPage',this.state.game)}
 
     viewFunctions = {
         updateGame : this.updateGame,
         restartTimer: this.restartTimer,
         clearTimer:this.clearTimer,
-        finishGame:this.finishGame
-        
+        finishGame:this.finishGame  
     }
-
 
     render() {
         return (

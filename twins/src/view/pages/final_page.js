@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet, Button, TextInput, Alert, TouchableOpacity, ImageBackground } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import AwesomeButton from 'react-native-really-awesome-button';
 
 function FinalPage({route, navigation }) {
@@ -11,7 +11,6 @@ function FinalPage({route, navigation }) {
     backToStart = () => { navigation.navigate('HomePage') }
 
     return (
-        <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.back}>
             <View style={styles.container}>
 
                 <View style={[styles.top, styles.centerAll]}>
@@ -57,19 +56,18 @@ function FinalPage({route, navigation }) {
                 <View style={styles.buttons}>
 
                     <AwesomeButton width={100} borderRadius={15} backgroundColor='#039BE5' textColor='#424242' backgroundDarker='#01579B'
-                        onPress={ this.restart }>
+                        onPress={ restart }>
                         REINICIAR
                     </AwesomeButton>
 
                     <AwesomeButton width={100} borderRadius={15} backgroundColor='#039BE5' textColor='#424242' backgroundDarker='#01579B'
-                        onPress={ this.backToStart }>
+                        onPress={ backToStart }>
                         VOLVER AL INICIO
                     </AwesomeButton>
 
                 </View>
 
             </View>
-        </ImageBackground>
 
     )
 
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: 'rgba(255,245,157,0.5)',
+        backgroundColor: 'rgba(255,245,157,1)',
         marginTop: '35%',
         marginBottom: '35%',
         marginLeft: '10%',
