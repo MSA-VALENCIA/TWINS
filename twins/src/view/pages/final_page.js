@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     },
     mid: {
         flex: 1.5,
-        backgroundColor: 'cornsilk',
+        backgroundColor: 'rgba(255,255,255,0.7)',
         marginLeft: 15,
         marginRight: 15,
         borderRadius: 40,
