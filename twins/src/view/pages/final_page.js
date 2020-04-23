@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button, TextInput, Alert, TouchableOpacity, ImageBackground } from 'react-native'
+import AwesomeButton from 'react-native-really-awesome-button';
 
 function FinalPage({ navigation }) {
 
@@ -44,25 +45,22 @@ function FinalPage({ navigation }) {
                             <Text style={{ fontSize: 20 }}>Total:</Text>
                         </View>
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', color:'#263238' }}>430 puntos</Text>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#263238' }}>430 puntos</Text>
                         </View>
                     </View>
                 </View>
 
                 <View style={styles.botones}>
 
-                    <TouchableOpacity onPress={this.reiniciar}>
-                        <View style={styles.but}>
-                            <Text style={styles.buttonText}>Reiniciar</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <AwesomeButton width={100} borderRadius={15} backgroundColor='#039BE5' textColor='#424242' backgroundDarker='#01579B'
+                        onPress={ this.reiniciar }>
+                        REINICIAR
+                    </AwesomeButton>
 
-                    <TouchableOpacity onPress={this.volverInicio}>
-                        <View style={styles.but}>
-                            <Text style={styles.buttonText}>Volver a inicio</Text>
-                        </View>
-                    </TouchableOpacity>
-
+                    <AwesomeButton width={100} borderRadius={15} backgroundColor='#039BE5' textColor='#424242' backgroundDarker='#01579B'
+                        onPress={ this.volverInicio }>
+                        VOLVER AL INICIO
+                    </AwesomeButton>
 
                 </View>
 
