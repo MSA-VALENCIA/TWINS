@@ -38,7 +38,7 @@ class GamePage extends Component {
 
     finishGame = () => {
         console.log('final')
-        this.props.navigation.navigate('FinalPage')
+        this.props.navigation.navigate('FinalPage',this.state.game)
     }
 
     viewFunctions = {

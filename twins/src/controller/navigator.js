@@ -14,7 +14,7 @@ function RootPageStack() {
     
     return (
         <NavigationContainer>
-            <PageStack.Navigator headerMode='none' initialRouteName='FinalPage'>
+            <PageStack.Navigator headerMode='none' initialRouteName='HomePage'>
                 <PageStack.Screen
                     name="GamePage"
                     component={GamePage}
