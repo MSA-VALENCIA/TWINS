@@ -7,7 +7,7 @@ import Card from '../components/card';
 class Grid extends Component {
     
     _renderItem = (card, index) => (
-        <Card key={index} style={styles.item} card={card} index={index} doTurn={this.props.doTurn} />
+        <Card key={index} card={card} index={index} doTurn={this.props.doTurn} />
     )
 
     render() {
@@ -28,11 +28,6 @@ export default Grid
 
 const styles = StyleSheet.create({
     grid: {
-        flex:0,
         margin: 10,
-    },
-    item: {
-        flex: 1,
-        height: 65,
     },
 })
