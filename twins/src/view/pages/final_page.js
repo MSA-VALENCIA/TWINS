@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AwesomeButton from 'react-native-really-awesome-button';
+import {restartGame} from '../../controller/navigator'
 
 function FinalPage({route, navigation }) {
    
     let puntuation = route.params.getGamePunctuation 
     
-    restart = () => { navigation.navigate('GamePage') }
+    restart = () => { navigation.dispatch(restartGame) }
 
     backToStart = () => { navigation.navigate('HomePage') }
 

@@ -43,7 +43,7 @@ export default Card
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
-    height: 90,
+    height: 80,
     shadowColor: 'rgba(0,0,0,0.5)',
     shadowOffset: {
       width: 0,

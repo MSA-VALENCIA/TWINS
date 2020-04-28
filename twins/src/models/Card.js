@@ -17,6 +17,8 @@ class Card {
 
     get getTurned() {return this.turned}
 
+    set setTurned(turned) {return this.turned=turned}
+
     turn() {
         if(!this.turnedAroundAtLeastOnce && this.turned == true)this.turnedAroundAtLeastOnce=true
         this.turned = !this.turned
@@ -24,15 +26,22 @@ class Card {
 
     get getSelected() {return this.selected}
 
+    set setSelected(selected) {this.selected = selected}
+
     select() {this.selected = !this.selected}
 
     get getPaired() {return this.paired}
+
+    set setPaired(paired) {this.paired = paired}
 
     pair() {this.paired = true}
 
     get getTurnedAroundAtLeastOnce() {return this.turnedAroundAtLeastOnce}
 
+    set setTurnedAroundAtLeastOnce(turnedAroundAtLeastOnce) {this.turnedAroundAtLeastOnce = turnedAroundAtLeastOnce}
+
     arePair(card) {return this.image == card.getImage && this.index != card.getIndex}
+    
 
 }
 

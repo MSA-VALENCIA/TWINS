@@ -5,7 +5,8 @@ class Game {
     constructor(maxCards, deck) {
         this.cardsPaired = 0
         this.maxCards = maxCards
-        this.deck = deck.prepareDeck()
+        deck.createPairs()
+        this.deck = deck
         this.state = new NoneCardSelectioned()
         this.gamePunctuation = new GamePunctuation()
     }
@@ -23,6 +24,14 @@ class Game {
     get getGamePunctuation() {return this.gamePunctuation}
 
     foundedPair () {this.cardsPaired += 2}
+
+    restartGame(){
+        this.cardsPaired = 0
+        this.deck.prepareDeck()
+        this.state = new NoneCardSelectioned()
+        this.gamePunctuation = new GamePunctuation()
+        return this
+    }
 
 } export default Game
 

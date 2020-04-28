@@ -38,10 +38,19 @@ class Deck {
     }
 
     prepareDeck() {
-        this.createPairs();
+        this.restartDeck()
         this.shuffle();
         this.asignIndex()
         return this;
+    }
+
+    restartDeck(){
+        this.cards.forEach(card => {
+            card.setTurned = false
+            card.setSelected = false
+            card.setPaired = false
+            card.setTurnedAroundAtLeastOnce = false
+        });
     }
 
     getSelectedCards() {

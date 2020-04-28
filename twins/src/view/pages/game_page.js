@@ -12,7 +12,7 @@ class GamePage extends Component {
         super(props);
 
         this.state = {
-            game: this.props.route.params.newGame,
+            game: this.props.route.params.newGame.restartGame(),
         };
     }
 
