@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet,Image } from 'react-native'
 
-const LENGTH_ONE_SIZE=50
-const LENGTH_TWO_SIZE=40
-const LENGTH_THREE_SIZE=35
+const LENGTH_ONE_SIZE=38
+const LENGTH_TWO_SIZE=34
+const LENGTH_THREE_SIZE=32
 
 function PointsContainer(props) {
     let {points} = props

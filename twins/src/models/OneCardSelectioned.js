@@ -32,9 +32,8 @@ class OneCardSelectioned extends StateGame {
         }
         firstCard.select()
         secondCard.select()
-        viewFunctions.restartTimer()
+        viewFunctions.restartCircularTimer()
         if (game.allPaired()) {
-            viewFunctions.clearTimer()
             viewFunctions.finishGame()
         }
         else game.setState = new NoneCardSelectioned()

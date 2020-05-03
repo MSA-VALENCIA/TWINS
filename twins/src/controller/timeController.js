@@ -1,6 +1,6 @@
 import NoneCardSelectioned from '../models/NoneCardSelectioned';
 
-export let exceededTime = (game, updateGame) => {
+export let exceededSelectedTime = (game, updateGame) => {
     let deck = game.getDeck
     let selectedCards = deck.getSelectedCards()
     selectedCards.forEach(card => {

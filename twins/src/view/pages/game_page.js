@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
 import Grid from '../components/grid';
+import CircularCountdown from '../components/circular_countdown'
 import Countdown from '../components/countdown'
-import { exceededTime, restartTimer,clearTimer } from '../../controller/timeController'
+import { exceededSelectedTime, restartTimer, clearTimer } from '../../controller/timeController'
 import PointsContainer from '../components/pointsContainer'
 
 
@@ -16,23 +17,28 @@ class GamePage extends Component {
         };
     }
 
-    doTurn = (index) => {this.state.game.request(index, this.viewFunctions);}
+    doTurn = (index) => { this.state.game.request(index, this.viewFunctions); }
 
-    updateGame = (newGame) => {this.setState({ game: newGame })}
+    updateGame = (newGame) => { this.setState({ game: newGame }) }
 
-    exceededTime = () => {exceededTime(this.state.game, this.updateGame)}
+    exceededSelectedTime = () => { exceededSelectedTime(this.state.game, this.updateGame) }
 
-    restartTimer = () => {restartTimer(this.countdown)}
+    restartCircularTimer = () => { restartTimer(this.circularCountdown) }
 
-    clearTimer = () => {clearTimer(this.countdown)}
+    clearCircularTimer = () => { clearTimer(this.circularCountdown) }
 
-    finishGame = () => {this.props.navigation.navigate('FinalPage',this.state.game)}
+    clearCountdown = () => { clearTimer(this.countdown)}
+
+    finishGame = () => {
+        this.clearCircularTimer()
+        this.clearCountdown()
+        this.props.navigation.navigate('FinalPage', this.state.game) 
+    }
 
     viewFunctions = {
-        updateGame : this.updateGame,
-        restartTimer: this.restartTimer,
-        clearTimer:this.clearTimer,
-        finishGame:this.finishGame  
+        updateGame: this.updateGame,
+        restartCircularTimer: this.restartCircularTimer,
+        finishGame: this.finishGame
     }
 
     render() {
@@ -40,9 +46,10 @@ class GamePage extends Component {
             <ImageBackground source={require('../../../assets/images/background.jpg')} style={styles.background}>
                 <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                     <View style={styles.header}>
-                    <PointsContainer points={this.state.game.getGamePunctuation.getPoints}/>
-                        <Countdown ref={countdown => { this.countdown = countdown }} duration={5} onFinish={this.exceededTime} />
-                        
+                        <PointsContainer points={this.state.game.getGamePunctuation.getPoints} />
+                        <Countdown ref={countdown => { this.countdown = countdown }} duration={60} onFinish={this.finishGame}/>
+                        <CircularCountdown ref={circularCountdown => { this.circularCountdown = circularCountdown }} duration={5} onFinish={this.exceededSelectedTime} />
+
                     </View>
                     <View style={styles.body}>
                         <Grid game={this.state.game} doTurn={this.doTurn} />
@@ -61,7 +68,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop:20
+        alignItems: 'center',
+        marginTop: 20
     },
     body: {
         flex: 5,
@@ -71,7 +79,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10
     },
-    
+
 })
 
 export default GamePage

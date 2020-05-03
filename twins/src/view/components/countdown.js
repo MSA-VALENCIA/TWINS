@@ -23,23 +23,13 @@ export default class Countdown extends Component {
 
     updateTimer = () => {
         this.updateColor()
-        if (this.state.time > 1)
+        if (this.state.time > 0)
             this.setState({
                 time: this.state.time - 1
             })
         else {
             this.props.onFinish()
-            this.restartTimer()
         }
-    }
-
-    restartTimer = () => {
-        clearInterval(this.state.timer)
-            this.setState({
-                timer:setInterval(() => this.updateTimer(), 1000),
-                time:this.state.duration,
-                color:'green'
-            })
     }
 
     updateColor = () => {
@@ -47,10 +37,25 @@ export default class Countdown extends Component {
             this.setState({
                 color: 'yellow'
             })
+        if(this.state.time == 0)
+        this.setState({
+            color:'red'
+        })
     }
 
     clearTimer = () => {
         clearInterval(this.state.timer)
+    }
+
+    secondsToFormat = (seconds) => {
+        let min = 0
+        let sec = seconds
+        if(seconds>60){
+            min = Math.floor(seconds/60)
+            sec = seconds%60
+        }
+        if(sec<10)sec = '0'+sec
+        return min + ':' + sec
     }
     // pauseTimer = () => {
     //     this.setState({
@@ -69,13 +74,13 @@ export default class Countdown extends Component {
         var { color } = this.state
         // var {paused} = this.state
         return (
-            <View style={{ justifyContent: 'center' ,height:75,width:75}}>
+            <View style={{ justifyContent: 'center' ,height:80,width:80}}>
                 <ImageBackground source={require('../../../assets/images/reloj.png')} style={{flex:1}}>
                 {/* <TouchableWithoutFeedback onPress={() => {
                     if(!paused)this.resumeTimer()
                     else this.pauseTimer()
                 }}> */}
-                <Text style={[{ color: color, textAlign: 'center' }, styles.text]}>{time}</Text>
+                <Text style={[{ color: color, textAlign: 'center' }, styles.text]}>{this.secondsToFormat(time)}</Text>
                 </ImageBackground>
                 {/* </TouchableWithoutFeedback> */}
                 {/* <Text style={{textAlign:'center'}}>Pulsa el tiempo para pausar o reanudar</Text> */}
@@ -86,8 +91,8 @@ export default class Countdown extends Component {
 
 const styles = StyleSheet.create({
     text: {
-        fontSize: 45,
+        fontSize: 24,
         textAlign: 'center',
-        marginTop:5
+        marginTop:23
     },
 })
