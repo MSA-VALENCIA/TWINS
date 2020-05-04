@@ -32,7 +32,7 @@ class OneCardSelectioned extends StateGame {
         }
         firstCard.select()
         secondCard.select()
-        viewFunctions.restartCircularTimer()
+        viewFunctions.restartTic()
         if (game.allPaired()) {
             viewFunctions.finishGame()
         }

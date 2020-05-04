@@ -7,7 +7,8 @@ export default class CircularCountdown extends Component {
         super(props)
         this.state = {
             time: this.props.duration,
-            color: 'green'
+            color: 'green',
+            
         }
     }
     componentDidMount() {

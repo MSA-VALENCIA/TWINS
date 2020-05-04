@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import Grid from '../components/grid';
 import CircularCountdown from '../components/circular_countdown'
 import Countdown from '../components/countdown'
-import { exceededSelectedTime, restartTimer, clearTimer } from '../../controller/timeController'
+import { exceededTicTime} from '../../controller/timeController'
 import PointsContainer from '../components/pointsContainer'
 
 
@@ -21,23 +21,18 @@ class GamePage extends Component {
 
     updateGame = (newGame) => { this.setState({ game: newGame }) }
 
-    exceededSelectedTime = () => { exceededSelectedTime(this.state.game, this.updateGame) }
+    exceededTicTime = () => { exceededTicTime(this.state.game, this.updateGame) }
 
-    restartCircularTimer = () => { restartTimer(this.circularCountdown) }
-
-    clearCircularTimer = () => { clearTimer(this.circularCountdown) }
-
-    clearCountdown = () => { clearTimer(this.countdown)}
+    restartTic = () => {this.countdown.restartTic()}
 
     finishGame = () => {
-        this.clearCircularTimer()
-        this.clearCountdown()
+        this.countdown.clear()
         this.props.navigation.navigate('FinalPage', this.state.game) 
     }
 
     viewFunctions = {
         updateGame: this.updateGame,
-        restartCircularTimer: this.restartCircularTimer,
+        restartTic: this.restartTic,
         finishGame: this.finishGame
     }
 
@@ -47,9 +42,7 @@ class GamePage extends Component {
                 <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                     <View style={styles.header}>
                         <PointsContainer points={this.state.game.getGamePunctuation.getPoints} />
-                        <Countdown ref={countdown => { this.countdown = countdown }} duration={60} onFinish={this.finishGame}/>
-                        <CircularCountdown ref={circularCountdown => { this.circularCountdown = circularCountdown }} duration={5} onFinish={this.exceededSelectedTime} />
-
+                        <Countdown ref={countdown => { this.countdown = countdown }} duration={60} ticDuration={5} onTicFinish={this.exceededTicTime} onFinish={this.finishGame}/>
                     </View>
                     <View style={styles.body}>
                         <Grid game={this.state.game} doTurn={this.doTurn} />
