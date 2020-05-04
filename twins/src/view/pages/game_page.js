@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
 import Grid from '../components/grid';
-import CircularCountdown from '../components/circular_countdown'
 import Countdown from '../components/countdown'
 import { exceededTicTime} from '../../controller/timeController'
 import PointsContainer from '../components/pointsContainer'

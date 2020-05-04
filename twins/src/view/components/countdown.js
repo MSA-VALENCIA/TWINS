@@ -57,6 +57,10 @@ export default class Countdown extends Component {
             this.setState({
                 color: 'yellow'
             })
+            if(this.state.ticTime == 2)
+            this.setState({
+                color:'red'
+            })
     }
 
     clear = () => {
