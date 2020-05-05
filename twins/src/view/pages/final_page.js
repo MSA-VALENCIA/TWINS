@@ -6,6 +6,13 @@ import {restartGame} from '../../controller/navigator'
 function FinalPage({route, navigation }) {
    
     let puntuation = route.params.getGamePunctuation 
+
+    let finalTime = route.params.getTime
+
+    let cardsOfGame = route.params.getMaxCards
+
+    console.log(finalTime)
+    console.log(cardsOfGame)
     
     restart = () => { navigation.dispatch(restartGame) }
 
@@ -20,38 +27,23 @@ function FinalPage({route, navigation }) {
 
                 <View style={styles.mid}>
                     <View style={[styles.midUp, styles.centerAll]}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#263238' }}>RESULTADO FINAL</Text>
+                        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#263238' }}>RESULTADO FINAL</Text>
                     </View>
 
                     <View style={styles.midCenter}>
 
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold', marginLeft: 40 }}>Pts. positivos</Text>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold',  marginLeft: 40 }}>Pts. negativos</Text>
-                            
+                            <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 40 }}>Puntos:</Text>                          
                         </View>
 
                         <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ color: 'green', fontWeight: 'bold', fontSize: 17 }}>{puntuation.getSumedPoints}</Text>
-                            <Text style={{ color: 'red', fontWeight: 'bold',  fontSize: 17 }}>{puntuation.getSubtractedPoints}</Text>
+                            <Text style={{ color: 'green', fontWeight: 'bold', fontSize: 20 }}>{cardsOfGame * 0.25 * finalTime}</Text>
                             
                         </View>
 
                     </View>
 
-                    <View style={{
-                        borderBottomColor: '#263238', borderBottomWidth: 1, marginLeft: 20, marginRight: 20,
-                        marginTop: 15
-                    }} />
-
-                    <View style={styles.midDown}>
-                        <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Total:</Text>
-                        </View>
-                        <View style={[styles.flex, styles.centerAll]}>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#263238' }}>{puntuation.getPoints}</Text>
-                        </View>
-                    </View>
+                   
                 </View>
 
                 <View style={styles.buttons}>
@@ -101,7 +93,7 @@ const styles = StyleSheet.create({
         flex: 0.7,
     },
     mid: {
-        flex: 1.5,
+        flex: 0.8,
         backgroundColor: 'rgba(255,255,255,0.7)',
         marginLeft: '5%',
         marginRight: '5%',
@@ -109,17 +101,15 @@ const styles = StyleSheet.create({
 
     },
     midUp: {
-        flex: 0.9,
+        flex: 1.2,
+        marginTop : 20
     },
     midCenter: {
-        flex: 1,
-        flexDirection: "row"
-    },
-    midDown: {
-        flex: 0.8,
+        flex: 0.7,
         flexDirection: "row",
-        marginBottom: '5%'
+        marginBottom : 35
     },
+  
     buttons: {
         flex: 0.6,
         flexDirection: "row",

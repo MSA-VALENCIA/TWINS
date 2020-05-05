@@ -25,7 +25,7 @@ export default class Countdown extends Component {
 
     update = () => {
         this.updateTicColor()
-        console.log(this.state.ticTime)
+        //console.log(this.state.ticTime)
         if (this.state.globalTime > 0)
         if(this.state.ticTime-1 > 0)
             this.setState({

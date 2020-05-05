@@ -9,6 +9,7 @@ class Game {
         this.deck = deck
         this.state = new NoneCardSelectioned()
         this.gamePunctuation = new GamePunctuation()
+        this.time = 0
     }
 
     allPaired() {return this.cardsPaired == this.maxCards}
@@ -22,6 +23,12 @@ class Game {
     get getDeck() {return this.deck}
 
     get getGamePunctuation() {return this.gamePunctuation}
+
+    get getTime(){return this.time}
+
+    set setTime(time){this.time = time}
+
+    get getMaxCards(){return this.maxCards}
 
     foundedPair () {this.cardsPaired += 2}
 

@@ -26,6 +26,7 @@ class GamePage extends Component {
 
     finishGame = () => {
         this.countdown.clear()
+        this.state.game.setTime = this.countdown.state.globalTime
         this.props.navigation.navigate('FinalPage', this.state.game) 
     }
 
@@ -41,7 +42,7 @@ class GamePage extends Component {
                 <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                     <View style={styles.header}>
                         <PointsContainer points={this.state.game.getGamePunctuation.getPoints} />
-                        <Countdown ref={countdown => { this.countdown = countdown }} duration={60} ticDuration={5} onTicFinish={this.exceededTicTime} onFinish={this.finishGame}/>
+                        <Countdown ref={countdown => { this.countdown = countdown }} duration={120} ticDuration={5} onTicFinish={this.exceededTicTime} onFinish={this.finishGame}/>
                     </View>
                     <View style={styles.body}>
                         <Grid game={this.state.game} doTurn={this.doTurn} />
