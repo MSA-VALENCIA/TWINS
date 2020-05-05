@@ -6,6 +6,7 @@ import HomePage from '../view/pages/home_page';
 import FinalPage from '../view/pages/final_page';
 import { Game } from '../models/Game';
 import { animals } from '../models/Deck';
+import Pause from '../view/components/pause'
 
 
 const PageStack = createStackNavigator();
@@ -24,6 +25,10 @@ function RootPageStack() {
         <PageStack.Screen
           name="FinalPage"
           component={FinalPage}
+          options={modalOptions} />
+          <PageStack.Screen
+          name="Pause"
+          component={Pause}
           options={modalOptions} />
       </PageStack.Navigator>
     </NavigationContainer>

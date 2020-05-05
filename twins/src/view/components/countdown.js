@@ -25,7 +25,6 @@ export default class Countdown extends Component {
 
     update = () => {
         this.updateTicColor()
-        console.log(this.state.ticTime)
         if (this.state.globalTime > 0)
         if(this.state.ticTime-1 > 0)
             this.setState({
@@ -81,29 +80,17 @@ export default class Countdown extends Component {
     calculatePercent = (time) => {
         return 100/this.props.ticDuration * time
     }
-    // pauseTimer = () => {
-    //     this.setState({
-    //         paused:false
-    //     })
-    //     clearInterval(this.state.timer);
-    // }
-    // resumeTimer = () => {
-    //     this.setState({
-    //         paused:true
-    //     })
-    //     this.state.timer = setInterval(() => this.updateTimer(), 1000)
-    // }
+
+    resume = () => {
+        this.state.timer = setInterval(() => this.update(), 1000)
+    }
+
     render() {
         var { globalTime } = this.state
         var { ticTime } = this.state
         var { color } = this.state
-        // var {paused} = this.state
         return (
             <View style={{ justifyContent: 'center', height: 80, width: 80 }}>
-                    {/* <TouchableWithoutFeedback onPress={() => {
-                    if(!paused)this.resumeTimer()
-                    else this.pauseTimer()
-                }}> */}
                     <ProgressCircle
                         percent={this.calculatePercent(ticTime)}
                         radius={30}
@@ -115,8 +102,6 @@ export default class Countdown extends Component {
                         <Text style={ styles.text}>{this.secondsToFormat(globalTime)}</Text>
                     </ProgressCircle>
 
-                {/* </TouchableWithoutFeedback> */}
-                {/* <Text style={{textAlign:'center'}}>Pulsa el tiempo para pausar o reanudar</Text> */}
             </View>
         )
     }

@@ -1,4 +1,4 @@
-#Tue May 05 11:53:43 CEST 2020
-base.0=C\:\\Users\\sergi\\OneDrive\\Escritorio\\TWINS\\twins\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+#Tue May 05 12:14:24 CEST 2020
+base.0=C\:\\Users\\Dani\\Desktop\\React\\TWINS\\twins\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

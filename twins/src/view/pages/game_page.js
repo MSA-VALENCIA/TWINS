@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
+
 import Grid from '../components/grid';
 import Countdown from '../components/countdown'
-import { exceededTicTime} from '../../controller/timeController'
+import { exceededTicTime } from '../../controller/timeController'
 import PointsContainer from '../components/pointsContainer'
+import GameButton from '../components/gameButton'
 
 
 class GamePage extends Component {
@@ -29,6 +31,11 @@ class GamePage extends Component {
         this.props.navigation.navigate('FinalPage', this.state.game) 
     }
 
+    pauseGame = () => {
+        this.countdown.clear()
+        this.props.navigation.navigate('Pause', this.countdown.resume)
+    }
+
     viewFunctions = {
         updateGame: this.updateGame,
         restartTic: this.restartTic,
@@ -42,6 +49,7 @@ class GamePage extends Component {
                     <View style={styles.header}>
                         <PointsContainer points={this.state.game.getGamePunctuation.getPoints} />
                         <Countdown ref={countdown => { this.countdown = countdown }} duration={60} ticDuration={5} onTicFinish={this.exceededTicTime} onFinish={this.finishGame}/>
+                        <GameButton iconOn='pause' iconOff='pause' onPress={this.pauseGame}/>
                     </View>
                     <View style={styles.body}>
                         <Grid game={this.state.game} doTurn={this.doTurn} />
@@ -70,8 +78,7 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         marginLeft: 10,
         marginRight: 10
-    },
-
+    }
 })
 
 export default GamePage
